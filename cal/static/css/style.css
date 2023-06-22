@@ -76,3 +76,9 @@
 .event-list {
   display: none;
 }
+
+.event-count {
+  display: block;
+  font-size: 18px;
+  color: orange;
+}

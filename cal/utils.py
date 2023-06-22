@@ -15,7 +15,11 @@ class Calendar(HTMLCalendar):
             events_html += f'<li>{event.title}</li>'
 
         if day != 0:
-            return f'<td><span class="date">{day}</span><ul class="event-list">{events_html}</ul></td>'
+            if len(events_per_day) == 0:
+                return f'<td><span class="date">{day}</span><ul class="event-list">{events_html}</ul>'
+            else:
+                return f'<td><span class="date">{day}</span><ul class="event-list">{events_html}</ul>' \
+                   f'<span class="event-count">{"•"*len(events_per_day)}</span></td>'
         return '<td></td>'
 
     def formatweek(self, theweek, events):
